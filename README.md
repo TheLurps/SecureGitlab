@@ -8,9 +8,9 @@ Secure GitLab instance using its REST API
 - call tool with:
 
 ```bash
-```bash
 ./secure_gitlab.py --url http://localhost --private-token 7Ha5jBvMP5G3fsa_ZSLD \
     --disable-public-signup \
     --depromote-users \
+    --block-users \
     --except-user root
 ```
