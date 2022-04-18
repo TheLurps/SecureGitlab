@@ -8,12 +8,7 @@ def disable_public_signup(url, token):
     r = requests.get(url + endpoint, headers={'PRIVATE-TOKEN': token})
     id = r.json()['id']
     r = requests.put(url + endpoint, headers={'PRIVATE-TOKEN': token}, data={'id': id, 'signup_enabled': False})
-    new_state = r.json()['signup_enabled']
-
-    if new_state == False:
-        print('Disabling public user signup')
-    else:
-        print('Disabling public user signup failed')
+    print('{0}: Disabling public sign up'.format('SUCCESS' if not r.json()['signup_enabled'] else 'FAILURE'))
 
 def fetch_users(url, token):
     endpoint = '/api/v4/users'
